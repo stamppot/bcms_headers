@@ -29,19 +29,4 @@ config.action_view.cache_template_loading            = true
 SITE_DOMAIN="localhost:3000"
 config.action_view.cache_template_loading = false
 config.action_controller.page_cache_directory = RAILS_ROOT + "/public/cache/"
-config.gem 'google4r-checkout', :lib => 'google4r/checkout' # Used with google checkout
 
-config.after_initialize do
-  ActiveMerchant::Billing::Base.mode = :production
-  ::EXPRESS_GATEWAY = ActiveMerchant::Billing::PaypalExpressGateway.new({
-    :login => "production_login",
-    :password => "production_password",
-    :signature => "production_signature"
-  })
-
-  ::GOOGLE_CHECKOUT_CONFIGURATION = {
-    :merchant_id => '??',
-    :merchant_key => '??',
-    :use_sandbox => false
-  }
-end

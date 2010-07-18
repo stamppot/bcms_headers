@@ -18,7 +18,7 @@
  *
  * == END LICENSE ==
  *
- * Spanish language file.
+ * Danish language file.
  */
 
 var FCKLang =

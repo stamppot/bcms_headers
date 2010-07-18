@@ -1,0 +1,18 @@
+<% @header_types.each do |header_type| %>
+	<ul>
+		<li>
+			<%= link_to header_type.name, '?type=' + header_type.id.to_s %>
+		</li>
+	</ul>
+<% end %>
+
+<% if @search_results_summary %>
+	<h3><%= @search_results_summary %></h3>
+	<% if @headers_to_browse %>
+		<% @headers_to_browse.each do |header| %>
+			<li>
+				<%=h header.name %> is a header of type <%= header.header_type.name %>. %>.
+			</li>
+		<% end %>
+	<% end %>
+<% end %>

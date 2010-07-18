@@ -1,12 +1,12 @@
 Feature: Manage Wool Types
-	In order to record information about weavings
-	As a weavings administrator
+	In order to record information about headers
+	As a headers administrator
 	I Want to manage wool types
 
 	Background:
 		Given I am logged in as "cmsadmin" with password "cmsadmin"
 
-	Scenario: Create Weaving Type
+	Scenario: Create Header Type
 	    Given I have no wool types
 	    And I am on the list of wool types
 	    When I follow "ADD NEW CONTENT"

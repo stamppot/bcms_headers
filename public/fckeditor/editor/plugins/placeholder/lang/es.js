@@ -18,7 +18,7 @@
  *
  * == END LICENSE ==
  *
- * Placholder Spanish language file.
+ * Placholder Danish language file.
  */
 FCKLang.PlaceholderBtn			= 'Insertar/Editar contenedor' ;
 FCKLang.PlaceholderDlgTitle		= 'Propiedades del contenedor ' ;

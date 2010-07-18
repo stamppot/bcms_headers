@@ -479,8 +479,8 @@ ActiveRecord::Schema.define(:version => 20100224115640) do
 
   add_index "users", ["login"], :name => "index_users_on_login", :unique => true
 
-  create_table "weaver_versions", :force => true do |t|
-    t.integer  "weaver_id"
+  create_table "producer_versions", :force => true do |t|
+    t.integer  "producer_id"
     t.integer  "version"
     t.string   "name"
     t.string   "last_name"
@@ -497,7 +497,7 @@ ActiveRecord::Schema.define(:version => 20100224115640) do
     t.datetime "updated_at"
   end
 
-  create_table "weavers", :force => true do |t|
+  create_table "producers", :force => true do |t|
     t.integer  "version"
     t.integer  "lock_version",       :default => 0
     t.string   "name"
@@ -514,12 +514,12 @@ ActiveRecord::Schema.define(:version => 20100224115640) do
     t.datetime "updated_at"
   end
 
-  create_table "weaving_photo_versions", :force => true do |t|
-    t.integer  "weaving_photo_id"
+  create_table "header_photo_versions", :force => true do |t|
+    t.integer  "header_photo_id"
     t.integer  "version"
     t.integer  "attachment_id"
     t.integer  "attachment_version"
-    t.integer  "weaving_id"
+    t.integer  "product_id"
     t.string   "name"
     t.boolean  "published",          :default => false
     t.boolean  "deleted",            :default => false
@@ -531,12 +531,12 @@ ActiveRecord::Schema.define(:version => 20100224115640) do
     t.datetime "updated_at"
   end
 
-  create_table "weaving_photos", :force => true do |t|
+  create_table "header_photos", :force => true do |t|
     t.integer  "version"
     t.integer  "lock_version",       :default => 0
     t.integer  "attachment_id"
     t.integer  "attachment_version"
-    t.integer  "weaving_id"
+    t.integer  "product_id"
     t.string   "name"
     t.boolean  "published",          :default => false
     t.boolean  "deleted",            :default => false
@@ -547,11 +547,11 @@ ActiveRecord::Schema.define(:version => 20100224115640) do
     t.datetime "updated_at"
   end
 
-  create_table "weaving_type_versions", :force => true do |t|
-    t.integer  "weaving_type_id"
+  create_table "header_type_versions", :force => true do |t|
+    t.integer  "header_type_id"
     t.integer  "version"
     t.string   "name"
-    t.string   "spanish_name"
+    # t.string   "danish_name"
     t.integer  "low_stock_level"
     t.text     "description"
     t.integer  "user_id"
@@ -567,11 +567,11 @@ ActiveRecord::Schema.define(:version => 20100224115640) do
     t.datetime "updated_at"
   end
 
-  create_table "weaving_types", :force => true do |t|
+  create_table "header_types", :force => true do |t|
     t.integer  "version"
     t.integer  "lock_version",       :default => 0
     t.string   "name"
-    t.string   "spanish_name"
+    t.string   "danish_name"
     t.integer  "low_stock_level"
     t.text     "description"
     t.integer  "user_id"
@@ -586,11 +586,11 @@ ActiveRecord::Schema.define(:version => 20100224115640) do
     t.datetime "updated_at"
   end
 
-  create_table "weaving_versions", :force => true do |t|
-    t.integer  "weaving_id"
+  create_table "product_versions", :force => true do |t|
+    t.integer  "product_id"
     t.integer  "version"
-    t.integer  "weaver_id"
-    t.integer  "weaving_type_id"
+    t.integer  "producer_id"
+    t.integer  "header_type_id"
     t.integer  "wool_type_id"
     t.integer  "cart_id"
     t.string   "item_number"
@@ -610,11 +610,11 @@ ActiveRecord::Schema.define(:version => 20100224115640) do
     t.datetime "updated_at"
   end
 
-  create_table "weavings", :force => true do |t|
+  create_table "headers", :force => true do |t|
     t.integer  "version"
     t.integer  "lock_version",        :default => 0
-    t.integer  "weaver_id"
-    t.integer  "weaving_type_id"
+    t.integer  "producer_id"
+    t.integer  "header_type_id"
     t.integer  "wool_type_id"
     t.integer  "cart_id"
     t.string   "item_number"

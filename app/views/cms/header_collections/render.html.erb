@@ -1,0 +1,10 @@
+<p><b>Name:</b> <%= @content_block.name %></p>
+<p><b>Danish name:</b> <%= @content_block.danish_name %></p>
+<p><b>Description:</b> <%= @content_block.description %></p>
+<p><b>Sections:</b> <%= @content_block.section.name %></p>
+<p><b>Header types:</b> 
+	<ul><% @content_block.header_types.each do |header_type| %>
+		<li><%= header_type.name %></li>
+		<% end %>
+	</ul>
+</p>

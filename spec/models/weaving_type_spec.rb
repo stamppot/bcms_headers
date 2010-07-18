@@ -1,23 +1,23 @@
 require "spec_helper"
 
-describe "Weaving Type" do
+describe "Header Type" do
 
   it "should have a unique name" do
-    # Weaving Type should not be valid without a name
-    weaving_type = WeavingType.new
-    weaving_type.should_not be_valid
+    # Header Type should not be valid without a name
+    header_type = HeaderType.new
+    header_type.should_not be_valid
 
-    # Weaving Type should be valid once named
-    weaving_type.name = 'Shawl'
-    weaving_type.should be_valid
-    weaving_type.save
+    # Header Type should be valid once named
+    header_type.name = 'Shawl'
+    header_type.should be_valid
+    header_type.save
 
-    # A Weaving Type with the same name should not be valid
-    weaving_type = WeavingType.new :name => 'Shawl'
-    weaving_type.should_not be_valid
+    # A Header Type with the same name should not be valid
+    header_type = HeaderType.new :name => 'Shawl'
+    header_type.should_not be_valid
 
     # When the name is changed it should be valid
-    weaving_type.name = 'Rug'
-    weaving_type.should be_valid
+    header_type.name = 'Rug'
+    header_type.should be_valid
   end
 end

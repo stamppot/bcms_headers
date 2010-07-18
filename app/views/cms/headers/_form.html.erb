@@ -1,0 +1,9 @@
+<% f.cms_text_field :item_number %>
+<%= f.cms_drop_down :header_type_id, HeaderType.all(:order => "name").map{|e| [e.name, e.id]} %>
+<% f.cms_file_field :header_photo, :label => "Photo" %>
+<%= f.cms_file_field :attachment_file, :label => "Photo" %>
+<% if false %>
+	<p><b>Photo:</b> <br/><br/><img src="<%= @content_block.attachment_link %>" alt="Example Photo 1" height="480px" width="640px"><br/></p>
+<% end %>
+<%= f.cms_text_field :summary_description %>
+<% f.cms_text_editor :description %>

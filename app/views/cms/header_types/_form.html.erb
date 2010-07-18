@@ -1,0 +1,6 @@
+<% f.cms_text_field :item_number %>
+<%= f.cms_text_field :name %>
+<%= f.cms_text_field :danish_name %>
+<%# f.cms_drop_down :section_id, Section.not_hidden(:order => "name").map{|e| [e.name, e.id]} %>
+<%= f.cms_file_field :attachment_file, :label => "Example Photo" %>
+<%= f.cms_text_editor :description %>
