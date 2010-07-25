@@ -24,20 +24,11 @@ class Cms::HeaderCollectionsController < Cms::ContentBlockController
   end
   
   def update
-    puts "update params: #{params.inspect}"
     @header_collection = HeaderCollection.find params[:id]
     params[:header_collection][:header_type_ids] ||= []
 
     @section = Section.find params[:header_collection][:section_id]
     @header_types = HeaderType.find(params[:header_collection][:header_type_ids])
-    # @header_collection.header_types.each do |type|
-    #   if !@header_types.include? type  # if not in ty
-    #     
-    # @header_collection.header_types = @header_types
-    # @header_collection.header_types.each &:save
-    # @header_collection.save
-    # super
-    # redirect_to :action => :index
 
     if @header_collection.update_attributes params[:header_collection]
       redirect_to :action => :index and return

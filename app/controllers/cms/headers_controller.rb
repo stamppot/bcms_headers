@@ -12,6 +12,9 @@ class Cms::HeadersController < Cms::ContentBlockController
     super
   end
 
+  def random_header
+    render :text => Header.random(Page.find params[:id], true)
+  end
   # def update
   #   super
   # end

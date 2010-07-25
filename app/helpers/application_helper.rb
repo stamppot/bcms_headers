@@ -1,15 +1,22 @@
+# Methods added to this helper will be available to all templates in the application.
 module ApplicationHelper
-
-  def random_header(collection_name, divide_equally = true)
-    header_collection = HeaderCollection.find_by_name(collection_name)
-     return "Bad header collection name" unless header_collection
-
+  
+  def get_random_header(page, divide_equally = true)
+    Header.random(page, divide_equally)
+    # sections = page.ancestors.reverse.each do |section|
+    #   if header_collection = HeaderCollection.find_by_section_id(section.id)
+    #     return random_header(header_collection, divide_equally)
+    #   end
+    # end
+  end
+    
+  def random_header(collection, divide_equally = true)
     path = "/headers/"
 
     if divide_equally # equal change to get header from header types
-      random_header_equal_groups(header_collection, path)
+      random_header_equal_groups(collection, path)
     else # equal change for all headers
-      random_all_headers(header_collection, path = nil)
+      random_all_headers(collection, path = nil)
     end
   end
 
@@ -26,14 +33,14 @@ module ApplicationHelper
   def random_element(array)
     array[rand(array.size)]
   end
-  
+
   def random_all_headers(header_collection, path = nil)
     path ||= "/headers/"
     headers = header_collection.header_types.map { |type| type.headers }.flatten
     header = random_element(array)
     path += "#{header.header_type.item_number}/" + header.attachment.name
   end
-  
+
   # equal chance to get header from header types
   def random_header_equal_groups(header_collection, path = nil)
     path ||= "/headers/"
@@ -46,5 +53,5 @@ module ApplicationHelper
     headers = headers_hash[rand_item]
     path += "#{rand_item}/" + random_element(headers).attachment.name
   end
-  
+
 end
