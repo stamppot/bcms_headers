@@ -7,8 +7,8 @@ class RandomHeader
       page = Page.find page
     end
     sections = page.section.ancestors << page.section
-    sections = page.section.ancestors.reverse.each do |asection|
-      if header_collection = HeaderCollection.find_by_section_id(asection.id)
+    sections.reverse.each do |section|
+      if header_collection = HeaderCollection.find_by_section_id(section.id)
         return self.random_header(header_collection, divide_equally)
       end
     end
