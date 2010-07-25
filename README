@@ -91,7 +91,7 @@ See full example below:
 		{
 			/* random_header(controllerActionString, headerClass, time) */
 		 // call HeadersController/random_header action every 10 seconds and update the image element with class .refreshHeader
-			 random_header("headers/random_header", ".refreshHeader", 10000)
+			 random_header("/random_headers/show/<%= @page.section.id %>", ".refreshHeader", 10000)
 		});
 	});
 	</script>
