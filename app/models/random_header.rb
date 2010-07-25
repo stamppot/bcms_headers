@@ -3,6 +3,8 @@ class RandomHeader
     if section.is_a? Array
       puts "Section is an array: #{section.inspect} "
       section = section.first
+    elsif section.is_a? Integer
+      section = Section.find section
     end
     sections = section.ancestors.reverse.each do |asection|
       if header_collection = HeaderCollection.find_by_section_id(asection.id)
