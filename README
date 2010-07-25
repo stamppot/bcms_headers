@@ -1,6 +1,6 @@
-# Mano Headers Module for BrowserCMS
+#  Headers Module for BrowserCMS
 
-A module to allow Mano a Mano to sell Bolivian headers on the internet.
+A module to allow  a  to sell Bolivian headers on the internet.
 
 ## Installation
 These instructions are adapted from those found at http://www.browsercms.org/doc/guides/html/installing_modules.html.
@@ -13,9 +13,9 @@ This assumes you have the latest copy of the code from github on your machine.
         gem build bcms_headers.gemspec
         sudo gem install bcms_headers-1.0.0.gem
 
-At this point, the Mano Headers gem should be installed as a gem on your system, and can be added to your projects.
+At this point, the  Headers gem should be installed as a gem on your system, and can be added to your projects.
 
-### B. Adding the Mano Headers module to your project
+### B. Adding the  Headers module to your project
 In your BrowserCMS application, do the following steps.
 
 #### 1. Edit the config/environment.rb file
@@ -44,18 +44,50 @@ You should messages checking to see if files already exist or were created.
 This module will add new data types, like content blocks, so you need to run the migrations to add them to your project.
 
 		rake db:migrate
-		rake db:seed # Optionally create a headers section and some pages
 		script/server
 
 #### 5. Installation Complete
 * Open your browser to localhost:3000/cms/portlets and login
 
 
-## Running cucumber scenarios and rspec examples (tests)
-Cucumber and rspec are used to verify the behavior of the system.
+To get random headers in your BrowserCMS project: 
 
-#### 1. Run the default rake task
-rake
+Random image: on your page, template or partial, insert this snippet: <%= get_random_header %>  
 
-#### 2. If there are problems delete the test db. This should not be needed every time because use_transactional_fixtures is used so the db is not modified
-rm -f db/test.sqlite3
+Random images with a time interval: 
+1. Create a controller action in your project which calls Header.random(page, true)
+2. Include the following javascripts:
+	 <%= javascript_include_tag 'jquery-1.2.6.min' %>
+   <%= javascript_include_tag 'jquery-timers-1.0.0', 'random_headers' %>
+
+3. Use jquery or similar to call the controller in the document.ready function
+
+See full example below:
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+	<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+	<title>Simple Time Interval Page Element Refresh using JQuery and a sprinkle of Ajax</title>
+	 <%= javascript_include_tag 'jquery-1.2.6.min' %>
+  <%= javascript_include_tag 'jquery-timers-1.0.0', 'random_headers' %>
+
+	<script type="text/javascript">
+
+	$(document).ready(function(){
+		var j = jQuery.noConflict();
+		j(document).ready(function()
+		{
+			/* random_header(controllerActionString, headerClass, time) */
+		 // call HeadersController/random_header action every 10 seconds and update the image element with class .refreshHeader
+			 random_header("headers/random_header", ".refreshHeader", 10000)
+		});
+	});
+	</script>
+
+</head>
+<body>
+	<img class="refreshHeader" src="/headers/header1.jpg" />
+</body>
+</html>
+
+

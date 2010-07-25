@@ -3,11 +3,6 @@ module ApplicationHelper
   
   def get_random_header(page, divide_equally = true)
     Header.random(page, divide_equally)
-    # sections = page.ancestors.reverse.each do |section|
-    #   if header_collection = HeaderCollection.find_by_section_id(section.id)
-    #     return random_header(header_collection, divide_equally)
-    #   end
-    # end
   end
     
   def random_header(collection, divide_equally = true)
