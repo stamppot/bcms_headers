@@ -1,7 +1,7 @@
 # Methods added to this helper will be available to all templates in the application.
 module ApplicationHelper
   
-  def get_random_header(section, divide_equally = true)
+  def get_random_header(page, divide_equally = true)
     page = Page.find(page) unless page.is_a? Page
     RandomHeader.get(page, divide_equally)
   end
