@@ -2,6 +2,7 @@
 module ApplicationHelper
   
   def get_random_header(section, divide_equally = true)
+    section = Section.find(section) unless section.is_a? Section
     RandomHeader.get(section, divide_equally)
   end
     
