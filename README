@@ -1,6 +1,18 @@
 #  Headers Module for BrowserCMS
 
-A module to allow  a  to sell Bolivian headers on the internet.
+A module to add random headers
+
+## Installation for the impatient
+1. gem install bcms_headers
+2. add config.gem 'bcms_headers' to environment.rb
+3. add   map.routes_for_bcms_headers to routes.rb
+4. script/generate browser
+5. rake db:migrate
+6. add <%= get_random_header %> to your template
+7. add header types, headers, and a header collection in the CMS Administration part
+
+For updating headers every n seconds, see below.
+
 
 ## Installation
 These instructions are adapted from those found at http://www.browsercms.org/doc/guides/html/installing_modules.html.
