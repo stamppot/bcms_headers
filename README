@@ -71,8 +71,10 @@ Random images with a time interval:
 2. Include the following javascripts:
 	 <%= javascript_include_tag 'jquery-1.2.6.min' %>
    <%= javascript_include_tag 'jquery-timers-1.0.0', 'random_headers' %>
-
-3. Use jquery or similar to call the controller in the document.ready function
+3. Add route in your own project's routes.rb above routes_for_bcms_headers:
+	 map.resources :random_header
+   map.routes_for_bcms_headers
+4. Use jquery or similar to call the controller in the document.ready function
 
 See full example below:
 
