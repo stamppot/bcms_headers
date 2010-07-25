@@ -2,7 +2,9 @@ class RandomHeadersController < ActionController::Base #Cms::ContentBlockControl
 
   def show
     puts "params: #{params.inspect}  #{params.class}"
-    render :text => RandomHeader.get(Section.find params[:id], true)
+    params.delete "_"
+    section = Section.find params[:id]
+    render :text => RandomHeader.get(section, true)
   end
 
 end

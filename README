@@ -8,7 +8,8 @@ A module to add random headers
 3. add  map.routes_for_bcms_headers to routes.rb
 4. script/generate browser
 5. rake db:migrate
-6. add <%= get_random_header %> to your template
+6. add <%= get_random_header %> to your template, or to use without a helper method insert something like this: 
+	 <img class='header' src='/random_headers/show/<%= @page.section_id %>' />
 7. add header types, headers, and a header collection in the CMS Administration part
 
 For updating headers every n seconds, see below.
