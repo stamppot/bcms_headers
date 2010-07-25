@@ -80,8 +80,9 @@ See full example below:
 <head>
 	<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
 	<title>Simple Time Interval Page Element Refresh using JQuery and a sprinkle of Ajax</title>
-	 <%= javascript_include_tag 'jquery-1.2.6.min' %>
-  <%= javascript_include_tag 'jquery-timers-1.0.0', 'random_headers' %>
+	 <%= javascript_include_tag 'jquery' %>
+	 <%= javascript_include_tag '/bcms/bcms_headers/javascripts/jquery.timers-1.0.0.js' %>
+	 <%= javascript_include_tag '/bcms/bcms_headers/javascripts/random_header.js' %>
 
 	<script type="text/javascript">
 
