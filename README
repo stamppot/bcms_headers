@@ -76,6 +76,10 @@ Random images with a time interval:
    map.routes_for_bcms_headers
 4. Use jquery or similar to call the controller in the document.ready function
 
+Issues:
+Javascripts are not copied automatically on my machine, so you might have to cp the folder public/bcms_bcms_headers/javascripts
+to your own project's public folder.
+
 See full example below:
 
 <html xmlns="http://www.w3.org/1999/xhtml">
