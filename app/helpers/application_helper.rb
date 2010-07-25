@@ -2,8 +2,8 @@
 module ApplicationHelper
   
   def get_random_header(section, divide_equally = true)
-    section = Section.find(section) unless section.is_a? Section
-    RandomHeader.get(section, divide_equally)
+    page = Page.find(page) unless page.is_a? Page
+    RandomHeader.get(page, divide_equally)
   end
     
   def random_header(collection, divide_equally = true)

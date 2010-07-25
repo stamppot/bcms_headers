@@ -1,4 +1,4 @@
-class RandomHeadersController < ActionController::Base #Cms::ContentBlockController
+class RandomHeadersController < ActionController::Base
 
   def show
     puts "params: #{params.inspect}  #{params.class}"
