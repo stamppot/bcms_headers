@@ -1,8 +1,8 @@
 # Methods added to this helper will be available to all templates in the application.
 module ApplicationHelper
   
-  def get_random_header(page, divide_equally = true)
-    Header.random(page, divide_equally)
+  def get_random_header(section, divide_equally = true)
+    RandomHeader.get(section, divide_equally)
   end
     
   def random_header(collection, divide_equally = true)

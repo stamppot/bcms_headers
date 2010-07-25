@@ -1,7 +1,7 @@
 SPEC = Gem::Specification.new do |spec| 
   spec.name = "bcms_headers"
   spec.rubyforge_project = spec.name
-  spec.version = "1.0.0"
+  spec.version = "1.0.2"
   spec.summary = "A Random Headers Module for BrowserCMS"
   spec.author = "Jens Rasmussen" 
   spec.email = "jens@fordimankan.dk"
