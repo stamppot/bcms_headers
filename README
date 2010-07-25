@@ -5,7 +5,7 @@ A module to add random headers
 ## Installation for the impatient
 1. gem install bcms_headers
 2. add config.gem 'bcms_headers' to environment.rb
-3. add   map.routes_for_bcms_headers to routes.rb
+3. add  map.routes_for_bcms_headers to routes.rb
 4. script/generate browser
 5. rake db:migrate
 6. add <%= get_random_header %> to your template
@@ -86,8 +86,7 @@ See full example below:
 	<script type="text/javascript">
 
 	$(document).ready(function(){
-		var j = jQuery.noConflict();
-		j(document).ready(function()
+		jQuery(document).ready(function()
 		{
 			/* random_header(controllerActionString, headerClass, time) */
 		 // call HeadersController/random_header action every 10 seconds and update the image element with class .refreshHeader
