@@ -92,10 +92,10 @@ See full example below:
 	 <%= javascript_include_tag '/bcms/bcms_headers/javascripts/random_header.js' %>
 
   <script type="text/javascript">
-    var section_id = <%= @page.section_id %>;
+    var page_id = <%= @page.id %>;
     jQuery(document).ready(function()
     {
-       random_header(27, "img.content_header", 5000) /* section_id, header class, time in ms */
+       random_header(page_id, "img.content_header", 5000) /* page_id, header class, time in ms */
     });
   </script>
 

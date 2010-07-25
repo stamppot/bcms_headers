@@ -1,12 +1,12 @@
 class RandomHeader
-  def self.get(section, divide_equally = true)
-    if section.is_a? Array
-      puts "Section is an array: #{section.inspect} "
-      section = section.first
-    elsif section.is_a? Integer
-      section = Section.find section
+  def self.get(page, divide_equally = true)
+    if page.is_a? Array
+      puts "Page is an array: #{page.inspect} "
+      page = page.first
+    elsif page.is_a? Integer
+      page = Page.find page
     end
-    sections = section.ancestors.reverse.each do |asection|
+    sections = page.section.ancestors.reverse.each do |asection|
       if header_collection = HeaderCollection.find_by_section_id(asection.id)
         return self.random_header(header_collection, divide_equally)
       end

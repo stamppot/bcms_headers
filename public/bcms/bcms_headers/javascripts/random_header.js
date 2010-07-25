@@ -1,5 +1,5 @@
-function random_header(section_id, headerClass, time) {
-	var urlString = "/random_headers/show/" + section_id.toString();
+function random_header(page_id, headerClass, time) {
+	var urlString = "/random_headers/show/" + page_id.toString();
 	// first image
 	jQuery.ajax({
 		url: urlString,
